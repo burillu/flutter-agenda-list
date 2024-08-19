@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class HomePageSidebar extends StatelessWidget {
-  final void functionBtn;
-  HomePageSidebar({required Function this.functionBtn});
+  final void Function() functionBtn;
+  HomePageSidebar({required this.functionBtn});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class HomePageSidebar extends StatelessWidget {
                 Icons.add,
                 size: 25,
               ),
-              onPressed: () => functionBtn,
+              onPressed: functionBtn,
             ),
           ],
         ),

@@ -8,23 +8,41 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<String> notes = ['Nota 1', 'Tu sorella', 'SamanafattuBabbudoiu'];
+  final List<String> notes = [];
 
-  void addNote(String note) {
+  final List<String> samples = [
+    'Nota 1',
+    'Tu sorella',
+    'SamanafattuBabbudoiu',
+    'Uso Flutter, ma sono etero'
+  ];
+
+  void addNote() {
     setState(() {
+      samples.shuffle();
+      String note = samples.first;
       notes.add(note);
+    });
+  }
+
+  void removeNote(String note) {
+    setState(() {
+      notes.remove(note);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      // mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         HomePageSidebar(
           functionBtn: addNote,
         ),
         HomePageMain(
           notes: notes,
+          funcRemove: removeNote,
         )
       ],
     );
