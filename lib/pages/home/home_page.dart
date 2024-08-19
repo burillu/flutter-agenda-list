@@ -14,7 +14,8 @@ class _HomePageState extends State<HomePage> {
     'Nota 1',
     'Tu sorella',
     'SamanafattuBabbudoiu',
-    'Uso Flutter, ma sono etero'
+    'Uso Flutter, ma sono all\'estero',
+    'To-DO: Create a new to-do starting from a no existing to-do list'
   ];
 
   void addNote() {
@@ -33,18 +34,26 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      // mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        HomePageSidebar(
-          functionBtn: addNote,
-        ),
-        HomePageMain(
-          notes: notes,
-          funcRemove: removeNote,
-        )
-      ],
+    return SizedBox(
+      width: double.infinity,
+      height: double.infinity,
+      child: Stack(
+        children: [
+          HomePageSidebar(
+            functionBtn: addNote,
+          ),
+          Positioned(
+            right: 0,
+            left: 50,
+            top: 0,
+            bottom: 0,
+            child: HomePageMain(
+              notes: notes,
+              funcRemove: removeNote,
+            ),
+          )
+        ],
+      ),
     );
   }
 }

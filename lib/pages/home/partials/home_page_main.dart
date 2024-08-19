@@ -8,8 +8,7 @@ class HomePageMain extends StatelessWidget {
   const HomePageMain({required this.notes, required this.funcRemove});
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: Container(
+    return Container(
       padding: EdgeInsets.all(10),
       width: 100,
       child: SafeArea(
@@ -38,6 +37,6 @@ class HomePageMain extends StatelessWidget {
           ),
         ),
       ),
-    ));
+    );
   }
 }
